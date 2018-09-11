@@ -1,10 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
+# Create your models here.
 class Product(models.Model):
-    name = models.CharField(max_length=100)
-    value = models.FloatField()
+    label = models.CharField(max_length=50)
+    price = models.FloatField()
 
-    def __unicode__(self):
-        return self.name
-
-# class History(models.Model):
+class History(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    price = models.FloatField()
+    timestamp = models.DateTimeField(auto_now=True)
