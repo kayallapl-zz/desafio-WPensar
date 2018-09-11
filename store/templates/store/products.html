@@ -1,0 +1,13 @@
+{% extends "store/header.html" %} 
+
+{% block content %}
+<ul class="products card">
+    <p>Todos os Produtos</p>
+    {% for product in products %}
+        <li>
+            {{ product.label }} - R$ {{ product.price }}
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

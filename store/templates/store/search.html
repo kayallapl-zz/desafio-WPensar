@@ -1,0 +1,11 @@
+{% extends "store/header.html" %}
+
+{% block content %}
+
+<form action="searchresult" method="post" class="card">
+    {% csrf_token %}
+    <input type="text" id="name" name="name">
+    <input type="submit" value="Procurar">
+</form>
+
+{% endblock %}
